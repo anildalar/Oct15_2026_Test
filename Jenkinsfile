@@ -4,6 +4,15 @@ pipeline{
 		nodejs 'nodejs2400'
 	}
 	stages{
+		stage("Basic Setup"){
+			steps{
+				sh '''
+				apt update -y
+				apt upgrade -y
+				apt install sudo vim -y
+				'''
+			}
+		}
 		stage("Hello"){
 			steps{
 	
@@ -14,7 +23,7 @@ pipeline{
 	post{
 		always{
 			sh 'echo This is always execute';
-			deleteDir()
+			//deleteDir()
 		}
 	}
 
