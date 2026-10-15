@@ -1,5 +1,8 @@
 pipeline{
 	agent any
+	tools{
+		nodejs 'nodejs2400'
+	}
 	stages{
 		stage("Hello"){
 			steps{
